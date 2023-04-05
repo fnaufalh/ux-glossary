@@ -1,7 +1,6 @@
 <script setup>
 import { useFirestore, useCollection } from 'vuefire'
 import { getFirestore, collection, getDocs } from 'firebase/firestore'
-import { firebaseApp } from '../main'
 
 // const db = useFirestore()
 // const db = getFirestore(firebaseApp)

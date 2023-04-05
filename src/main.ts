@@ -1,4 +1,4 @@
-import { initializeApp } from 'firebase/app'
+import firebase from 'firebase/app'
 import { getFirestore, collection } from 'firebase/firestore'
 import { createApp } from 'vue'
 import { VueFire, VueFireAuth } from 'vuefire'
@@ -16,9 +16,12 @@ const firebaseConfig = {
   measurementId: 'G-YV036FMFVG'
 }
 
-export const firebaseApp = initializeApp(firebaseConfig)
+// Initialize Firebase app
+export const firebaseApp = firebase.initializeApp(firebaseConfig)
 
 const db = getFirestore(firebaseApp)
+
+console.log(db)
 
 export const userRef = collection(db, 'user')
 
