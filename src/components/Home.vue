@@ -1,21 +1,29 @@
-<script setup>
-import { useFirestore, useCollection } from 'vuefire'
-import { getFirestore, collection, getDocs } from 'firebase/firestore'
+<script setup type="module">
+import { db, userRef } from '@/main'
+// import { useFirestore, useCollection } from 'vuefire'
+import { getFirestore, collection, getDocs, QuerySnapshot } from 'firebase/firestore'
 
 // const db = useFirestore()
 // const db = getFirestore(firebaseApp)
 
-// const getDB = async () => {
-//   const res = await getDocs(collection(db, 'user'))
-//   console.log(res)
+// export default {
+//   data() {
+//     return {
+//       items: []
+//     }
+//   }
 // }
 
-// const user = getDB()
+// userRef.get().then((QuerySnapshot) => {
+//   QuerySnapshot.forEach((doc) => {
+//     this.items.push({ email: doc.email, name: doc.name })
+//   })
+// })
 </script>
 
 <template>
-  <span>{{ user }}</span>
-  <!-- <li v-for="usr in user" :key="usr.id">
-    <span>{{ usr.emal }}</span>
-  </li> -->
+  <!-- <span>{{ user }}</span> -->
+  <li v-for="usr in result" :key="usr.email">
+    <span>{{ usr.email }}</span>
+  </li>
 </template>

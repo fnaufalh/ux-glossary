@@ -1,8 +1,9 @@
-import firebase from 'firebase/app'
+import Vue, { initializeApp } from 'firebase/app'
+import { getAnalytics } from 'firebase/analytics'
 import { getFirestore, collection } from 'firebase/firestore'
 import { createApp } from 'vue'
 import { VueFire, VueFireAuth } from 'vuefire'
-import App from './App.vue'
+import App from './components/App.vue'
 
 import './assets/main.css'
 
@@ -16,12 +17,13 @@ const firebaseConfig = {
   measurementId: 'G-YV036FMFVG'
 }
 
+console.log(`Vue version: ${Vue}`)
+
 // Initialize Firebase app
-export const firebaseApp = firebase.initializeApp(firebaseConfig)
+export const firebaseApp = initializeApp(firebaseConfig)
+const analytics = getAnalytics(firebaseApp)
 
-const db = getFirestore(firebaseApp)
-
-console.log(db)
+export const db = getFirestore(firebaseApp)
 
 export const userRef = collection(db, 'user')
 
