@@ -1,4 +1,4 @@
-import Vue, { initializeApp } from 'firebase/app'
+import { initializeApp } from 'firebase/app'
 import { getAnalytics } from 'firebase/analytics'
 import { getFirestore, collection } from 'firebase/firestore'
 import { createApp } from 'vue'
@@ -17,7 +17,7 @@ const firebaseConfig = {
   measurementId: 'G-YV036FMFVG'
 }
 
-console.log(`Vue version: ${Vue}`)
+// console.log(`Vue version: ${Vue}`)
 
 // Initialize Firebase app
 export const firebaseApp = initializeApp(firebaseConfig)

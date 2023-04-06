@@ -1,4 +1,4 @@
-<script setup>
+<script setup type="module">
 // import HelloWorld from './components/HelloWorld.vue'
 // import TheWelcome from './components/TheWelcome.vue'
 import Home from './Home.vue'
