@@ -1,29 +1,46 @@
 <script type="module">
-import { db, userRef } from '@/main'
-import { useFirestore, useCollection } from 'vuefire'
-import { getFirestore, collection, getDocs, QuerySnapshot } from 'firebase/firestore'
+import { UserRepository } from '@/repositories/UserRepository'
+import { ProjectRepository } from '@/repositories/ProjectRepository'
+
+const userRepository = new UserRepository()
+const projectRepository = new ProjectRepository()
 
 export default {
   data() {
     return {
-      items: []
+      items: [],
+      projects: [],
+      inputValue: ''
     }
   },
   methods: {
     async getUser() {
-      this.items = useCollection(userRef)
+      this.items = await userRepository.getUser()
+    },
+    async getProject() {
+      this.projects = await projectRepository.getProject()
+    },
+    inputProject() {
+      projectRepository.addProject(this.inputValue)
     }
   },
   created() {
     this.getUser()
-    console.log(this.items)
+    this.getProject()
   }
 }
 </script>
 
 <template>
-  <span>Hello</span>
+  <h2>Get Data</h2>
   <li v-for="usr in this.items" :key="usr.email">
     <span>{{ usr.email }}</span>
   </li>
+  <hr />
+  <li v-for="project in this.projects" :key="project.name">
+    <span>{{ project.name }}</span>
+  </li>
+  <h2>Input Project</h2>
+  <input v-model="inputValue" type="text" name="project" />
+  <button type="submit" @click="inputProject">Submit</button>
 </template>
