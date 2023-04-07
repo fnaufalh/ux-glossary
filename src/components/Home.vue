@@ -1,27 +1,24 @@
-<script setup type="module">
+<script type="module">
 import { db, userRef } from '@/main'
-import { defineComponent } from 'vue'
-// import { useFirestore, useCollection } from 'vuefire'
+import { useFirestore, useCollection } from 'vuefire'
 import { getFirestore, collection, getDocs, QuerySnapshot } from 'firebase/firestore'
 
-// const db = useFirestore()
-// const db = getFirestore(firebaseApp)
-defineComponent({
+export default {
   data() {
     return {
       items: []
     }
   },
-  mounted() {
-    console.log('heel')
-    userRef.get().then((QuerySnapshot) => {
-      QuerySnapshot.forEach((doc) => {
-        this.items.push({ email: doc.email, name: doc.name })
-        console.log(this.items)
-      })
-    })
+  methods: {
+    async getUser() {
+      this.items = useCollection(userRef)
+    }
+  },
+  created() {
+    this.getUser()
+    console.log(this.items)
   }
-})
+}
 </script>
 
 <template>
