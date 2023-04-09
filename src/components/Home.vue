@@ -30,7 +30,6 @@ export default {
   }
 }
 </script>
-
 <template>
   <h2>Get Data</h2>
   <li v-for="usr in this.items" :key="usr.email">
@@ -38,7 +37,7 @@ export default {
   </li>
   <hr />
   <li v-for="project in this.projects" :key="project.name">
-    <span>{{ project.name }}</span>
+    <span>{{ project.name }}</span> <IconOTimes />
   </li>
   <h2>Input Project</h2>
   <input v-model="inputValue" type="text" name="project" />

@@ -13,7 +13,9 @@ import './assets/main.css'
 const analytics = getAnalytics(firebaseApp)
 
 const app = createApp(App)
-
+app.config.compilerOptions.isCustomElement = (tag) => {
+  return tag.startsWith('Icon')
+}
 app.use(VueFire, {
   firebaseApp,
   modules: [VueFireAuth()]
