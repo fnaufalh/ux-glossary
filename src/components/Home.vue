@@ -33,12 +33,15 @@ export default {
     },
     addProject() {
       projectRepository.addProject(this.input.project)
+    },
+    delProject(reference) {
+      projectRepository.delProject(reference)
     }
   },
   created() {
-    this.getUser()
+    // this.getUser()
     this.getProject()
-    this.getRole()
+    // this.getRole()
   }
 }
 </script>
@@ -60,7 +63,7 @@ export default {
   </table>
   <hr />
   <li v-for="project in this.projects" :key="project.name">
-    <span>{{ project.name }}</span> <IconOTimes />
+    <span>{{ project.name }}</span> | <a @click="delProject(project.id)">Delete</a>
   </li>
   <h2>Input Project</h2>
   <input v-model="input.project" type="text" name="project" />
