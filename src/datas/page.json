@@ -1,0 +1,118 @@
+[{
+  "parent": null,
+  "name": "Onboarding"
+}, {
+  "parent": null,
+  "name": "Homepage"
+}, {
+  "parent": null,
+  "name": "Login"
+}, {
+  "parent": null,
+  "name": "Signup"
+}, {
+  "parent": null,
+  "name": "My Booking"
+}, {
+  "parent": null,
+  "name": "My Favorite"
+}, {
+  "parent": null,
+  "name": "Account"
+}, {
+  "parent": null,
+  "name": "Promotion List"
+}, {
+  "parent": null,
+  "name": "Xplore Search"
+}, {
+  "parent": null,
+  "name": "Hotel Search"
+}, {
+  "parent": null,
+  "name": "Flight Search"
+}, {
+  "parent": null,
+  "name": "Train Search"
+}, {
+  "parent": null,
+  "name": "One Time Password (OTP)"
+}, {
+  "parent": null,
+  "name": "Forgot Password"
+}, {
+  "parent": null,
+  "name": "Privacy Policy"
+}, {
+  "parent": null,
+  "name": "Terms and Conditions"
+}, {
+  "parent": null,
+  "name": "Account Deletion"
+}, {
+  "parent": null,
+  "name": "Frequently Ask Questions (FAQ)"
+}, {
+  "parent": null,
+  "name": "My Review"
+}, {
+  "parent": null,
+  "name": "Profile"
+}, {
+  "parent": null,
+  "name": "Promotion Details"
+}, {
+  "parent": null,
+  "name": "Xplore List"
+}, {
+  "parent": null,
+  "name": "Hotel List"
+}, {
+  "parent": null,
+  "name": "Flight List"
+}, {
+  "parent": null,
+  "name": "Train List"
+}, {
+  "parent": null,
+  "name": "Hotel Details"
+}, {
+  "parent": null,
+  "name": "Xplore Details"
+}, {
+  "parent": null,
+  "name": "Flight Booking Page"
+}, {
+  "parent": null,
+  "name": "Train Booking Page"
+}, {
+  "parent": null,
+  "name": "Room List"
+}, {
+  "parent": null,
+  "name": "Xplore Booking Page"
+}, {
+  "parent": null,
+  "name": "Train Selection Seat"
+}, {
+  "parent": null,
+  "name": "Train Confirmation Page"
+}, {
+  "parent": null,
+  "name": "Flight Confirmation Page"
+}, {
+  "parent": null,
+  "name": "Hotel Booking Page"
+}, {
+  "parent": null,
+  "name": "Xplore Confirmation Page"
+}, {
+  "parent": null,
+  "name": "Payment Page"
+}, {
+  "parent": null,
+  "name": "Hotel Confirmation Page"
+}, {
+  "parent": null,
+  "name": "Thank You Page"
+}]
