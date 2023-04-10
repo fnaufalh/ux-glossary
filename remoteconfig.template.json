@@ -1,1 +1,10 @@
-{}
+{
+  "parameters": {
+    "welcome_message": {
+      "defaultValue": {
+        "value": "Welcome to ux-glossary!"
+      },
+      "conditionalValues": {}
+    }
+  }
+}

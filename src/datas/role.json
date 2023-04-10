@@ -1,0 +1,10 @@
+[{
+    "name": "viewer"
+  },
+  {
+    "name": "editor"
+  },
+  {
+    "name": "admin"
+  }
+]
