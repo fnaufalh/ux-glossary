@@ -10,6 +10,7 @@ import { RouterLink } from 'vue-router'
     <div class="wrapper">
       <ul>
         <li><router-link to="/">Home</router-link></li>
+        <li><router-link to="/user">User</router-link></li>
         <li><router-link to="/project">Project</router-link></li>
         <li><router-link to="/role">Role</router-link></li>
       </ul>

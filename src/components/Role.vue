@@ -7,7 +7,10 @@ export default {
   data() {
     return {
       roles: [],
-      payload: null
+      payload: {
+        id: null,
+        name: null
+      }
     }
   },
   methods: {
@@ -15,7 +18,19 @@ export default {
       this.roles = await roleRepository.getRole()
     },
     addRole() {
-      roleRepository.addRole(this.payload)
+      roleRepository.addRole(this.payload.name)
+    },
+    delRole(reference) {
+      roleRepository.delRole(reference)
+    },
+    editRole(id, name) {
+      this.payload = {
+        id: id,
+        name: name
+      }
+    },
+    updateRole() {
+      roleRepository.updateRole(this.payload)
     }
   },
   created() {
@@ -28,16 +43,18 @@ export default {
   <table border="1px solid #424242">
     <thead>
       <th>name</th>
-      <!-- <th>action</th> -->
+      <th>action</th>
     </thead>
     <tbody>
       <tr v-for="role in this.roles" :key="role.id">
         <td>{{ role.name }}</td>
-        <!-- <td><a @click="delProject(project.id)">Delete</a></td> -->
+        <td>
+          <a @click="editRole(role.id, role.name)">Edit</a> |
+          <a @click="delRole(role.id)">Delete</a>
+        </td>
       </tr>
     </tbody>
   </table>
-  <!-- <h2>Input Project</h2>
-  <input v-model="payload" type="text" name="project" />
-  <button type="submit" @click="addProject">Submit</button> -->
+  <input type="text" v-model="this.payload.name" /><button @click="updateRole">Save</button>
+  <input type="text" v-model="this.payload.name" /><button @click="addRole">Submit</button>
 </template>
