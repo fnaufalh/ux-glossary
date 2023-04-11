@@ -1,10 +1,9 @@
 <script type="module">
 import { UserRepository } from '@/repositories/UserRepository'
-import { ProjectRepository } from '@/repositories/ProjectRepository'
 import { RoleRepository } from '@/repositories/RoleRepository'
+import { RouterLink } from 'vue-router'
 
 const userRepository = new UserRepository()
-const projectRepository = new ProjectRepository()
 const roleRepository = new RoleRepository()
 
 export default {
@@ -22,26 +21,17 @@ export default {
     async getUser() {
       this.users = await userRepository.getUser()
     },
-    async getProject() {
-      this.projects = await projectRepository.getProject()
-    },
+
     async getRole() {
       this.roles = await roleRepository.getRole()
     },
     addRole() {
       roleRepository.addRole(this.input.role)
-    },
-    addProject() {
-      projectRepository.addProject(this.input.project)
-    },
-    delProject(reference) {
-      projectRepository.delProject(reference)
     }
   },
   created() {
-    // this.getUser()
-    this.getProject()
-    // this.getRole()
+    this.getUser()
+    this.getRole()
   }
 }
 </script>
@@ -61,11 +51,4 @@ export default {
       </tr>
     </tbody>
   </table>
-  <hr />
-  <li v-for="project in this.projects" :key="project.name">
-    <span>{{ project.name }}</span> | <a @click="delProject(project.id)">Delete</a>
-  </li>
-  <h2>Input Project</h2>
-  <input v-model="input.project" type="text" name="project" />
-  <button type="submit" @click="addProject">Submit</button>
 </template>

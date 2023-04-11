@@ -1,21 +1,21 @@
 <script setup type="module">
-// import HelloWorld from './components/HelloWorld.vue'
-// import TheWelcome from './components/TheWelcome.vue'
 import Home from './Home.vue'
+import { RouterLink } from 'vue-router'
 </script>
 
-<template>
+<template id="app">
   <header>
     <img alt="Vue logo" class="logo" src="/src/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <!-- <HelloWorld msg="You did it!" /> -->
+      <ul>
+        <li><router-link to="/">Home</router-link></li>
+        <li><router-link to="/project">Project</router-link></li>
+        <li><router-link to="/role">Role</router-link></li>
+      </ul>
     </div>
   </header>
-
-  <main>
-    <Home />
-  </main>
+  <main><router-view></router-view></main>
 </template>
 
 <style scoped>
