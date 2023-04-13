@@ -25,10 +25,11 @@ export default {
       userRepository.changeRole(id, value)
     }
   },
-  created() {
-    this.getRole().then(() => {
-      this.getUser()
-    })
+  mounted() {
+    console.log('masuk')
+    // this.getRole().then(() => {
+    //   this.getUser()
+    // })
   }
 }
 </script>
@@ -43,10 +44,10 @@ export default {
     <input type="text" placeholder="email" />
   </div>
   <div>
-    <select v-model="this.selected[index]" @change="changeRole(user.id, this.selected[index])">
+    <!-- <select v-model="this.selected[index]" @change="changeRole(user.id, this.selected[index])">
       <option v-for="role in this.roles" :key="role.id" :value="role.id">
         {{ role.name }}
       </option>
-    </select>
+    </select> -->
   </div>
 </template>

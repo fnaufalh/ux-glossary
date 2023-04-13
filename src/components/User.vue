@@ -59,7 +59,9 @@ export default {
           </select>
         </td>
         <td>
-          <router-link :to="{ name: 'UserDetail', params: { userId: user.id } }">Edit</router-link>
+          <router-link :to="{ name: 'UserDetail', params: { userId: user.id.toString() } }"
+            >Edit</router-link
+          >
         </td>
       </tr>
     </tbody>

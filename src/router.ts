@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import Home from './components/Home.vue'
 import User from './components/User.vue'
 import UserDetail from './components/UserDetail.vue'
@@ -13,7 +13,12 @@ const routes = [
   {
     path: '/user',
     component: User,
-    children: [{ path: ':userId', name: 'UserDetail', component: UserDetail, props: true }]
+    name: 'User'
+  },
+  {
+    path: '/user/:userId',
+    name: 'UserDetail',
+    component: UserDetail
   },
   {
     path: '/project',
@@ -25,7 +30,7 @@ const routes = [
   }
 ]
 
-export const routerHistory = createWebHashHistory()
+export const routerHistory = createWebHistory()
 export const router = createRouter({
   history: routerHistory,
   strict: true,
