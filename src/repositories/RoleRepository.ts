@@ -1,13 +1,12 @@
 import { database } from './Firebase'
-import { useCollection } from 'vuefire'
-import { addDoc, collection, updateDoc, doc, deleteDoc } from 'firebase/firestore'
+import { addDoc, collection, updateDoc, doc, deleteDoc, getDocs } from 'firebase/firestore'
 
 const role = collection(database, 'role')
 
 export class RoleRepository {
-  public getRole() {
-    const response = useCollection(role)
-    return response
+  public async getRole() {
+    const snapshot = await getDocs(role)
+    return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
   }
   public addRole(reference: string) {
     addDoc(role, { name: reference })
