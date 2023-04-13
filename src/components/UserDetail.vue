@@ -10,26 +10,28 @@ export default {
     return {
       user: [],
       roles: [],
-      selected: {},
-      payload: null
+      selected: {}
     }
   },
   methods: {
     async getUserById(id) {
       this.user = await userRepository.getUserById(id)
+      this.selected = this.user.role.id
     },
     async getRole() {
       this.roles = await roleRepository.getRole()
     },
-    changeRole(id, value) {
-      userRepository.changeRole(id, value)
+    submitData() {
+      const userId = this.$route.params.userId
+      const { name, email } = this.user
+      const role = this.selected
+      userRepository.updateUser({ id: userId, name, email, role })
     }
   },
   mounted() {
-    console.log('masuk')
-    // this.getRole().then(() => {
-    //   this.getUser()
-    // })
+    this.getRole().then(() => {
+      this.getUserById(this.$route.params.userId)
+    })
   }
 }
 </script>
@@ -38,16 +40,19 @@ export default {
   <h4>Submit to update the data</h4>
   <br />
   <div>
-    <input type="text" placeholder="Fullname" />
+    <input type="text" placeholder="Fullname" v-model="this.user.name" />
   </div>
   <div>
-    <input type="text" placeholder="email" />
+    <input type="text" placeholder="email" v-model="this.user.email" />
   </div>
   <div>
-    <!-- <select v-model="this.selected[index]" @change="changeRole(user.id, this.selected[index])">
+    <select v-model="this.selected">
       <option v-for="role in this.roles" :key="role.id" :value="role.id">
         {{ role.name }}
       </option>
-    </select> -->
+    </select>
+  </div>
+  <div>
+    <button @click="submitData">Save</button>
   </div>
 </template>
