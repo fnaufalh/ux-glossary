@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from './components/Home.vue'
 import User from './components/User.vue'
+import UserDetail from './components/UserDetail.vue'
 import Project from './components/Project.vue'
 import Role from './components/Role.vue'
 
@@ -11,7 +12,8 @@ const routes = [
   },
   {
     path: '/user',
-    component: User
+    component: User,
+    children: [{ path: ':userId', name: 'UserDetail', component: UserDetail, props: true }]
   },
   {
     path: '/project',

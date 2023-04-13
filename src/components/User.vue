@@ -26,8 +26,7 @@ export default {
       userRepository.changeRole(id, value)
     }
   },
-  created() {},
-  beforeMount() {
+  created() {
     this.getRole().then(() => {
       this.getUser()
     })
@@ -43,6 +42,7 @@ export default {
       <th>name</th>
       <th>email</th>
       <th>role</th>
+      <th>action</th>
     </thead>
     <tbody>
       <tr v-for="(user, index) in this.users" :key="user.id">
@@ -58,9 +58,13 @@ export default {
             </option>
           </select>
         </td>
+        <td>
+          <router-link :to="{ name: 'UserDetail', params: { userId: user.id } }">Edit</router-link>
+        </td>
       </tr>
     </tbody>
   </table>
   <br />
   <hr />
+  <br />
 </template>
