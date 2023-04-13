@@ -4,6 +4,7 @@ import User from './components/User.vue'
 import UserDetail from './components/UserDetail.vue'
 import Project from './components/Project.vue'
 import Role from './components/Role.vue'
+import Search from './components/Search.vue'
 
 const routes = [
   {
@@ -27,6 +28,10 @@ const routes = [
   {
     path: '/role',
     component: Role
+  },
+  {
+    path: '/search',
+    component: Search
   }
 ]
 

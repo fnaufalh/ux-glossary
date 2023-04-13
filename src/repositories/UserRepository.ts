@@ -1,4 +1,3 @@
-import { update } from 'firebase/database'
 import { database } from './Firebase'
 import { collection, updateDoc, doc, getDocs, getDoc } from 'firebase/firestore'
 
