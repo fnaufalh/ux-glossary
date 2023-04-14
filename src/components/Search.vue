@@ -22,6 +22,7 @@ export default {
 <template>
   <h2>Search Users</h2>
   <h4>Example of simple search without search engine</h4>
+  <h6>Try search with <i>Naufal, admin, test, Yusak</i></h6>
   <br />
   <input type="text" placeholder="Enter keyword..." v-model="this.keyword" />
   <button @click="searchData()">Search</button>
