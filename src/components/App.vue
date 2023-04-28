@@ -53,6 +53,7 @@ nav ul {
   li {
     padding-inline: 1rem;
     font-weight: 500;
+    color: 
   }
 }
 // header {
