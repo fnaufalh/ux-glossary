@@ -10,15 +10,23 @@ import { RouterLink } from 'vue-router'
       <nav>
         <ul>
           <li><router-link to="/">Home</router-link></li>
-          <li><router-link to="/user">User</router-link></li>
-          <li><router-link to="/project">Project</router-link></li>
-          <li><router-link to="/role">Role</router-link></li>
           <li><router-link to="/search">Search</router-link></li>
+          <li><router-link to="#">Dictionary</router-link></li>
+          <li class="dropdown">
+            <a href="#" role="button">Database</a>
+            <ul class="dropdown-menu">
+              <li><router-link to="/user">User</router-link></li>
+              <li><router-link to="/project">Project</router-link></li>
+              <li><router-link to="/role">Role</router-link></li>
+            </ul>
+          </li>
+          
         </ul>
       </nav>
   
       <div class="user">
-        <p>Hi, name here | <button><img src="../assets/icons/icon-logout.svg"></button></p>
+        <p>Hi, Yusak</p>
+        <button class="btn"><img src="../assets/icons/icon-logout.svg"></button>
       </div>
     </div>
   </header>
@@ -36,6 +44,7 @@ header {
 
 .brand {
   flex: 1 1 auto;
+  font-weight: 500;
 }
 
 .right {
@@ -53,7 +62,63 @@ nav ul {
   li {
     padding-inline: 1rem;
     font-weight: 500;
-    color: 
+  }
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: '';
+    background: url(../assets/icons/icon-chevron-down.svg) center no-repeat;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+  }
+
+  &-menu {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    background: var(--neutral-0);
+    min-width: 120px;
+    z-index: 1;
+    padding-left: 0;
+    box-shadow: 0 4px 15px var(--neutral-900-shadow);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    
+    li {
+      padding-inline: 0;
+
+      a {
+        display: block;
+        padding: .25rem .5rem;
+      }
+
+      a:hover {
+        background: var(--primary-500);
+        color: var(--neutral-0);
+      }
+    }
+  }
+
+  &:hover .dropdown-menu{
+    display: block;
+  }
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+
+  p::after {
+    content: '|';
+    padding-left: 1rem;
   }
 }
 // header {
