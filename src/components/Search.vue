@@ -57,7 +57,7 @@ export default {
 
     <div class="title-wrapper">
       <p>Result</p>
-      <a href="#" class="btn btn-primary">Add Copy</a>
+      <router-link to="/addCopy" class="btn btn-primary">Add Copy</router-link>
     </div>
 
     <div class="result">
