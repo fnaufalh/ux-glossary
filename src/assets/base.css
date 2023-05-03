@@ -85,7 +85,10 @@ body {
   --primary-500: hsl(22 80% 56%);
   --primary-700: hsl(22 80% 46%);
   --font-family-sans: 'Inter', sans-serif;
-  --border-radius: 8px;
+  --border-radius-100: 8px;
+  --border-radius-300: 12px;
+  --border-radius-500: 16px;
+  --border-radius-700: 24px;
 }
 /* Box sizing rules */
 *,

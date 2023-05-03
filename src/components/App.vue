@@ -88,7 +88,7 @@ nav ul {
     z-index: 1;
     padding-left: 0;
     box-shadow: 0 4px 15px var(--neutral-900-shadow);
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-100);
     overflow: hidden;
     
     li {
@@ -115,6 +115,10 @@ nav ul {
   display: flex;
   align-items: center;
   font-weight: 500;
+
+  p {
+    margin-block-end: 0;
+  }
 
   p::after {
     content: '|';
