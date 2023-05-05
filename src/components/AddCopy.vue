@@ -1,5 +1,14 @@
 <script type="module">
 import AccordionSearchResult from './AccordionSearchResult.vue'
+import {ProjectRepository} from '@/repositories/ProjectRepository'
+import {ProductRepository} from '@/repositories/ProductRepository'
+import {PlatformRepository} from '@/repositories/PlatformRepository'
+import {PageRepository} from '@/repositories/PageRepository'
+
+const projectRepository = new ProjectRepository()
+const productRepository = new ProductRepository()
+const platformRepository = new PlatformRepository()
+const pageRepository = new PageRepository()
 
 export default {
   components: {
@@ -7,6 +16,14 @@ export default {
   },
   data() {
     return {
+      projects: [],
+      selectedProject: '',
+      products: [],
+      selectedProduct: '',
+      platforms: [],
+      selectedPlatform: '',
+      pages: [],
+      selectedPage: '',
       isOpen: false,
     }
   },
@@ -14,8 +31,29 @@ export default {
     toggleAccordion() {
       this.isOpen = !this.isOpen;
     },
+    // to get project from firebase
+    async getProject() {
+      this.projects = await projectRepository.getProject()
+    },
+    // to get product from firebase
+    async getProduct() {
+      this.products = await productRepository.getProduct()
+    },
+    // to get platform from database
+    async getPlatform() {
+      this.platforms = await platformRepository.getPlatform()
+    },
+    // to get page from database
+    async getPage() {
+      this.pages = await pageRepository.getPage()
+    }
   },
-  created() {}
+  created() {
+    this.getProject()
+    this.getProduct()
+    this.getPlatform()
+    this.getPage()
+  }
 }
 </script>
 
@@ -37,32 +75,32 @@ export default {
   <div class="form-wrapper">
     <div class="form-group">
       <label class="label">Page</label>
-      <select name="" id="" class="form-control">
-        <option value="">option1</option>
-        <option value="">option2</option>
+      <select v-model="selectedPage" class="form-control">
+        <option disabled value="">Select Page</option>
+        <option v-for="page in this.pages" :value="page.id">{{page.name}}</option>
       </select>
     </div>
     <div class="form-group">
       <label class="label">Platform</label>
-      <select name="" id="" class="form-control">
-        <option value="">option1</option>
-        <option value="">option2</option>
+      <select v-model="selectedPlatform" class="form-control">
+        <option disabled value="">Select Platform</option>
+        <option v-for="platform in this.platforms" :value="platform.id">{{platform.name}}</option>
       </select>
     </div>
   </div>
   <div class="form-wrapper">
     <div class="form-group">
       <label class="label">Product</label>
-      <select name="" id="" class="form-control">
-        <option value="">option1</option>
-        <option value="">option2</option>
+      <select v-model="selectedProduct" class="form-control">
+        <option disabled value="">Select Product</option>
+        <option v-for="product in this.products" :value="product.id">{{product.name}}</option>
       </select>
     </div>
     <div class="form-group">
       <label class="label">Project</label>
-      <select name="" id="" class="form-control">
-        <option value="">option1</option>
-        <option value="">option2</option>
+      <select v-model="selectedProject" class="form-control">
+        <option disabled value="">Select Project</option>
+        <option v-for="project in this.projects" :value="project.id" >{{project.name}}</option>
       </select>
     </div>
   </div>
