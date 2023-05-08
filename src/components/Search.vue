@@ -26,7 +26,7 @@ export default {
     },
   },
   mounted() {
-    console.log('getheight', this.$refs.blockHeight.clientHeight)
+    // console.log('getheight', this.$refs.blockHeight.clientHeight)
   },
   created() {}
 }
@@ -61,40 +61,48 @@ export default {
     </div>
 
     <div class="result">
-      <div class="result-item">
-        <div class="copy">
-          <div class="block">
-            <p>Lowest price</p>
-            <button class="btn"><img src="../assets/icons/icon-copy.svg"></button>
+      <div v-for="(item, index) in this.results" :key="index">
+        <div v-for="(arr, arrIndex) in item" :key="arrIndex" class="result-item">
+          <div class="copy">
+            <div class="block">
+              <p ref="blockHeight">
+                {{arr.lang_en}}
+              </p>
+              <p class="overlay">More</p>
+              <button class="btn"><img src="../assets/icons/icon-copy.svg"></button>
+            </div>
+            <div class="block">
+              <p>
+                {{arr.lang_id}}
+              </p>
+              <p class="overlay">More</p>
+              <button class="btn"><img src="../assets/icons/icon-copy.svg"></button>
+            </div>
           </div>
-          <div class="block">
-            <p>Harga terendah</p>
-            <button class="btn"><img src="../assets/icons/icon-copy.svg"></button>
-          </div>
+          <accordion-search-result>
+            <template v-slot:title>
+              <div class="info">
+                <p class="project">{{arr.name}}</p>
+                <p class="user">10 April 2023 By {{arr.name}}</p>
+              </div>
+            </template>
+            <template v-slot:content>
+              <div class="info">
+                <div class="info-item">
+                  <p>Utilization</p>
+                  <p>Modal dialog description on detail hotel product My Booking Page (MW)</p>
+                </div>
+                <div class="info-item">
+                  <p>Note</p>
+                  <p>Inactive caused by design change</p>
+                </div>
+              </div>
+            </template>
+          </accordion-search-result>
         </div>
-        <accordion-search-result>
-          <template v-slot:title>
-            <div class="info">
-              <p class="project">Baymax</p>
-              <p class="user">10 April 2023 By Ridho</p>
-            </div>
-          </template>
-          <template v-slot:content>
-            <div class="info">
-              <div class="info-item">
-                <p>Utilization</p>
-                <p>Modal dialog description on detail hotel product My Booking Page (MW)</p>
-              </div>
-              <div class="info-item">
-                <p>Note</p>
-                <p>Inactive caused by design change</p>
-              </div>
-            </div>
-          </template>
-        </accordion-search-result>
       </div>
 
-      <div class="result-item">
+      <!-- <div class="result-item">
         <div class="copy">
           <div class="block">
             <p ref="blockHeight">
@@ -131,14 +139,8 @@ export default {
             </div>
           </template>
         </accordion-search-result>
-      </div>
+      </div> -->
     </div>
-
-    <ul>
-      <li v-for="(item, index) in this.results" :key="index">
-        <p v-for="(arr, arrIndex) in item" :key="arrIndex">{{ arr.name }}</p>
-      </li>
-    </ul>
   </div>
 </template>
 <style lang="scss" scoped>
