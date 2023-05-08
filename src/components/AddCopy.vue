@@ -4,11 +4,13 @@ import {ProjectRepository} from '@/repositories/ProjectRepository'
 import {ProductRepository} from '@/repositories/ProductRepository'
 import {PlatformRepository} from '@/repositories/PlatformRepository'
 import {PageRepository} from '@/repositories/PageRepository'
+import {WordRepository} from '@/repositories/WordRepository'
 
 const projectRepository = new ProjectRepository()
 const productRepository = new ProductRepository()
 const platformRepository = new PlatformRepository()
 const pageRepository = new PageRepository()
+const wordRepository = new WordRepository()
 
 export default {
   components: {
@@ -24,6 +26,7 @@ export default {
       selectedPlatform: '',
       pages: [],
       selectedPage: '',
+      payloads: null,
       isOpen: false,
     }
   },
@@ -46,6 +49,10 @@ export default {
     // to get page from database
     async getPage() {
       this.pages = await pageRepository.getPage()
+    },
+    // to add copy to database
+    addWord() {
+      wordRepository.addWord(this.payloadEN, this.payloadID);
     }
   },
   created() {
@@ -66,11 +73,11 @@ export default {
 
   <div class="form-group">
     <label for="">EN</label>
-    <textarea name="" cols="4" rows="4" class="form-control"></textarea>
+    <textarea v-model="payloadEN" name="" cols="4" rows="4" class="form-control"></textarea>
   </div>
   <div class="form-group">
     <label for="">ID</label>
-    <textarea name="" cols="4" rows="4" class="form-control"></textarea>
+    <textarea v-model="payloadID" name="" cols="4" rows="4" class="form-control"></textarea>
   </div>
   <div class="form-wrapper">
     <div class="form-group">
@@ -123,7 +130,7 @@ export default {
     </template>
   </accordion-search-result>
 
-  <button class="btn btn-primary">Add Copy</button>
+  <button type="submit" @click="addWord()" class="btn btn-primary">Add Copy</button>
 </div>
 </template>
 
