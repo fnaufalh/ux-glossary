@@ -1,35 +1,57 @@
 @import './base.css';
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
+body {
+  font-family: var(--font-family-sans);
+  color: var(--neutral-900);
+  font-weight: 400;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
+h1,h2,h3 {
+  line-height: 1.3;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+p {
+  margin-block-end: 1rem;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+a {
+  text-decoration-line: none;
+  color: var(--neutral-900);
+  transition: .3s all ease-in-out;
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+a:hover {
+  color: var(--primary-500);
+}
+
+.btn {
+  background: transparent;
+  border: 1px solid transparent;
+  padding-inline: 1rem;
+  padding-block: .5rem;
+  border-radius: var(--border-radius-300);
+}
+
+.btn-primary {
+  color: var(--neutral-0);
+  background: var(--primary-500);
+  border-color: var(--primary-500);
+}
+
+.form-control {
+  border: 1px solid var(--neutral-300);
+  padding: .75rem 1rem;
+  border-radius: var(--border-radius-300);
+}
+
+.badge {
+  border-radius: var(--border-radius-100);
+  font-size: .875rem;
+  background: var(--neutral-100);
+  padding: 8px 12px;
+  line-height: 1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 110px;
 }

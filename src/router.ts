@@ -5,6 +5,7 @@ import UserDetail from './components/UserDetail.vue'
 import Project from './components/Project.vue'
 import Role from './components/Role.vue'
 import Search from './components/Search.vue'
+import AddCopy from './components/AddCopy.vue'
 
 const routes = [
   {
@@ -32,6 +33,10 @@ const routes = [
   {
     path: '/search',
     component: Search
+  },
+  {
+    path: '/addCopy',
+    component: AddCopy
   }
 ]
 

@@ -18,11 +18,17 @@ export class SearchRepository {
       where('name', '>=', keyword),
       where('name', '<=', keyword + '\uf8ff')
     )
+    const wordQuery = query(
+      collection(database, 'word'),
+      where('lang_en', '>=', keyword),
+      where('lang_en', '<=', keyword + '\uf8ff')
+    )
 
-    const [userSnapshot, roleSnapshot, projectSnapshot] = await Promise.all([
+    const [userSnapshot, roleSnapshot, projectSnapshot, wordSnapshot] = await Promise.all([
       getDocs(userQuery),
       getDocs(roleQuery),
-      getDocs(projectQuery)
+      getDocs(projectQuery),
+      getDocs(wordQuery),
     ])
 
     const users = userSnapshot.docs.map((doc) => {
@@ -34,8 +40,9 @@ export class SearchRepository {
     const projects = projectSnapshot.docs.map((doc) => {
       return { id: doc.id, ...doc.data() }
     })
-    console.log({ users, roles, projects })
-
-    return { users, roles, projects }
+    const words = wordSnapshot.docs.map((doc) => {
+      return {id: doc.id, ...doc.data()}
+    })
+    return { users, roles, projects, words }
   }
 }
