@@ -43,8 +43,6 @@ export class SearchRepository {
     const words = wordSnapshot.docs.map((doc) => {
       return {id: doc.id, ...doc.data()}
     })
-    console.log({ users, roles, projects, words })
-
     return { users, roles, projects, words }
   }
 }

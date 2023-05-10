@@ -1,5 +1,5 @@
 <script type="module">
-import AccordionSearchResult from './AccordionSearchResult.vue'
+import Accordion from './Accordion.vue'
 import {ProjectRepository} from '@/repositories/ProjectRepository'
 import {ProductRepository} from '@/repositories/ProductRepository'
 import {PlatformRepository} from '@/repositories/PlatformRepository'
@@ -14,7 +14,7 @@ const wordRepository = new WordRepository()
 
 export default {
   components: {
-    AccordionSearchResult
+    Accordion
   },
   data() {
     return {
@@ -79,6 +79,14 @@ export default {
     <label for="">ID</label>
     <textarea v-model="payloadID" name="" cols="4" rows="4" class="form-control"></textarea>
   </div>
+  <!-- Function not working -->
+  <!-- <div class="form-group">
+      <label class="label">Component</label>
+      <select v-model="selectedPage" class="form-control">
+        <option disabled value="">Select Component</option>
+        <option v-for="page in this.pages" :value="page.id">{{page.name}}</option>
+      </select>
+    </div>
   <div class="form-wrapper">
     <div class="form-group">
       <label class="label">Page</label>
@@ -110,9 +118,9 @@ export default {
         <option v-for="project in this.projects" :value="project.id" >{{project.name}}</option>
       </select>
     </div>
-  </div>
+  </div> -->
 
-  <accordion-search-result>
+  <!-- <accordion>
     <template v-slot:title>
       <div class="expander">
         <p class="no-margin">Optional</p>
@@ -128,7 +136,7 @@ export default {
         <textarea name="" cols="4" rows="4" class="form-control"></textarea>
       </div>
     </template>
-  </accordion-search-result>
+  </accordion> -->
 
   <button type="submit" @click="addWord()" class="btn btn-primary">Add Copy</button>
 </div>

@@ -1,12 +1,12 @@
 <script type="module">
 import { SearchRepository } from '@/repositories/SearchRepository'
-import AccordionSearchResult from './AccordionSearchResult.vue'
+import Accordion from './Accordion.vue'
 
 const searchRepository = new SearchRepository()
 
 export default {
   components: {
-    AccordionSearchResult
+    Accordion
   },
   data() {
     return {
@@ -18,16 +18,13 @@ export default {
   methods: {
     async searchData() {
       this.results = await searchRepository.search(this.keyword)
-      console.log('search')
     },
     
     toggleAccordion() {
       this.isOpen = !this.isOpen;
     },
   },
-  mounted() {
-    // console.log('getheight', this.$refs.blockHeight.clientHeight)
-  },
+  mounted() {},
   created() {}
 }
 </script>
@@ -39,21 +36,22 @@ export default {
       <input class="form-control search" type="text" placeholder="Enter keyword..." v-model="this.keyword" />
       <div class="action">
         <button @click="searchData()"><img src="../assets/icons/icon-search.svg"></button>
-        <select name="" id="">
+        <!-- function not working yet-->
+        <!-- <select name="" id="">
           <option value="All">All</option>
           <option value="All">Platform</option>
           <option value="All">Body</option>
-        </select>
+        </select> -->
       </div>
     </div>
-
-    <div class="last-search">
+    <!-- function not working yet -->
+    <!-- <div class="last-search">
       <span class="badge">Lowest Price</span>
       <span class="badge">Start from</span>
       <span class="badge">Additional text will be here</span>
       <span class="badge">Hi Guest</span>
       <span class="badge">Reset</span>
-    </div>
+    </div> -->
 
     <div class="title-wrapper">
       <p>Result</p>
@@ -79,7 +77,7 @@ export default {
               <button class="btn"><img src="../assets/icons/icon-copy.svg"></button>
             </div>
           </div>
-          <accordion-search-result>
+          <accordion>
             <template v-slot:title>
               <div class="info">
                 <p class="project">{{arr.name}}</p>
@@ -98,48 +96,9 @@ export default {
                 </div>
               </div>
             </template>
-          </accordion-search-result>
+          </accordion>
         </div>
       </div>
-
-      <!-- <div class="result-item">
-        <div class="copy">
-          <div class="block">
-            <p ref="blockHeight">
-              Additional charge may incur, depending on the facilities and policy of each property, and it would be charged upon check-in/check-out. This is another text to make it longer than before
-            </p>
-            <p class="overlay">More</p>
-            <button class="btn"><img src="../assets/icons/icon-copy.svg"></button>
-          </div>
-          <div class="block">
-            <p>
-              Penambahan biaya bergantung pada fasilitas dan kebijakan tiap properti dan akan dibayarkan pada saat check-in/check-out. Ini adalah text tambahan untuk membuat block ini lebih panjang dari sebelumnya
-            </p>
-            <p class="overlay">More</p>
-            <button class="btn"><img src="../assets/icons/icon-copy.svg"></button>
-          </div>
-        </div>
-        <accordion-search-result>
-          <template v-slot:title>
-            <div class="info">
-              <p class="project">Baymax</p>
-              <p class="user">10 April 2023 By Ridho</p>
-            </div>
-          </template>
-          <template v-slot:content>
-            <div class="info">
-              <div class="info-item">
-                <p>Utilization</p>
-                <p>Modal dialog description on detail hotel product My Booking Page (MW)</p>
-              </div>
-              <div class="info-item">
-                <p>Note</p>
-                <p>Inactive caused by design change</p>
-              </div>
-            </div>
-          </template>
-        </accordion-search-result>
-      </div> -->
     </div>
   </div>
 </template>
