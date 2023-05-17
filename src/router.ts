@@ -6,6 +6,7 @@ import Project from './components/Project.vue'
 import Role from './components/Role.vue'
 import Search from './components/Search.vue'
 import AddCopy from './components/AddCopy.vue'
+import ImportData from './components/ImportData.vue'
 
 const routes = [
   {
@@ -37,6 +38,10 @@ const routes = [
   {
     path: '/addCopy',
     component: AddCopy
+  },
+  {
+    path: '/import',
+    component: ImportData
   }
 ]
 
