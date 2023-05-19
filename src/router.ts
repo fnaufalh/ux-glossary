@@ -6,6 +6,7 @@ import Project from './components/Project.vue'
 import Role from './components/Role.vue'
 import Search from './components/Search.vue'
 import AddCopy from './components/AddCopy.vue'
+import DesignSystem from './components/DesignSystem.vue'
 import ImportData from './components/ImportData.vue'
 
 const routes = [
@@ -38,6 +39,10 @@ const routes = [
   {
     path: '/addCopy',
     component: AddCopy
+  },
+  {
+    path: '/design-system',
+    component: DesignSystem
   },
   {
     path: '/import',
