@@ -30,8 +30,6 @@ export default {
             }
           }
         }
-      } else {
-        console.log('out')
       }
     },
     async countComponent() {
