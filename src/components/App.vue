@@ -11,6 +11,7 @@ import { RouterLink } from 'vue-router'
         <ul>
           <li><router-link to="/">Home</router-link></li>
           <li><router-link to="/search">Search</router-link></li>
+          <li><router-link to="/design-system">Design System</router-link></li>
           <!-- function not working yet -->
           <!-- <li><router-link to="#">Dictionary</router-link></li> -->
           <li class="dropdown">
@@ -21,13 +22,12 @@ import { RouterLink } from 'vue-router'
               <li><router-link to="/role">Role</router-link></li>
             </ul>
           </li>
-          
         </ul>
       </nav>
-  
+
       <div class="user">
         <p>Hi, Yusak</p>
-        <button class="btn"><img src="../assets/icons/icon-logout.svg"></button>
+        <button class="btn"><img src="../assets/icons/icon-logout.svg" /></button>
       </div>
     </div>
   </header>
@@ -91,13 +91,13 @@ nav ul {
     box-shadow: 0 4px 15px var(--neutral-900-shadow);
     border-radius: var(--border-radius-100);
     overflow: hidden;
-    
+
     li {
       padding-inline: 0;
 
       a {
         display: block;
-        padding: .25rem .5rem;
+        padding: 0.25rem 0.5rem;
       }
 
       a:hover {
@@ -107,7 +107,7 @@ nav ul {
     }
   }
 
-  &:hover .dropdown-menu{
+  &:hover .dropdown-menu {
     display: block;
   }
 }
